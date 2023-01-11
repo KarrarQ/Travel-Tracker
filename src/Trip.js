@@ -27,7 +27,6 @@ class Trip {
   calculateFlightCost() {
     return this.travelers * this.destination.estimatedFlightCostPerPerson;
   }
-
-}
+};
   
   export default Trip;
