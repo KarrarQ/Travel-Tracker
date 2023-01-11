@@ -19,7 +19,6 @@ class Trip {
     const finalCost = PriceBeforeAgentFee - agentFee;
     return finalCost;
     }
-    
   }
   
   export default Trip;
