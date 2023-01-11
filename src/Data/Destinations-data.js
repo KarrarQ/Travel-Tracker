@@ -1,4 +1,4 @@
-const destinations = [
+const allDestinations = [
     {
       "id": 14,
       "destination": "Marrakesh, Morocco",
@@ -57,4 +57,4 @@ const destinations = [
     }
   ]
   
-  export default destinations;
+  export default allDestinations;
