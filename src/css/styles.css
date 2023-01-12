@@ -95,9 +95,11 @@ select {
 }
 
 main {
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
   grid-gap: 20px;
   padding: 20px;
   /* margin-top: 50px; */
@@ -107,7 +109,7 @@ main {
 .trip-card {
   border: 1px solid;
   height: 60vh;
-  width: 85%;
+  width: 25%;
   border-radius: 10px;
   box-shadow: 0 10px 14px rgb(34 15 15 / 13%), 0 4px 14px rgb(0 0 0 / 22%)
 }
