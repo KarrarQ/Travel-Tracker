@@ -10,8 +10,8 @@
   <header>
     <h1 class="title">Where to NXT</h1>
     <section class="user-greeting">
-      <h2>Welcome, User!</h2>
-      <p class="money-spent">Total Amount Spent This Year: $109293.07</p>
+      <h2 id="userGreeting">Welcome, User!</h2>
+      <p class="money-spent" id="totalSpent">Total Amount Spent This Year: $109293.07</p>
     </section>
   </header>
   <section class="form-container">
@@ -45,40 +45,7 @@
       <button>Pending</button>
     </div>
   </section>
-  <main>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-  </main>
+  <main id="tripCardsContainer"></main>
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
