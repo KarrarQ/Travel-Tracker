@@ -11,6 +11,7 @@ import './images/turing-logo.png'
 const tripCardsContainer = document.getElementById('tripCardsContainer');
 const userGreeting = document.getElementById('userGreeting');
 const totalSpent = document.getElementById('totalSpent')
+const destinationDropdown = document.getElementById('destinationDropdown');
 
 
 window.addEventListener('load', displayData);
@@ -29,6 +30,8 @@ function displayData () {
     const traveler = new Traveler(data[0][randomId], data[2], data[3]);
     renderTravelerTrips(traveler);
     greetUser(traveler);
+    displayAmountSpentYearly(traveler);
+    addDestinationOptionsToDropdown(data[3]);
   }
 
   const renderTravelerTrips = (traveler) => {
@@ -55,5 +58,14 @@ function displayData () {
     const names = traveler.name.split(' ');
     const firstName = names[0];
     userGreeting.innerText = `Welcome ${firstName}!`;
+  }
+
+  const displayAmountSpentYearly = (traveler) => {
     totalSpent.innerText = `Total Amount Spent This Year: $${traveler.calculateTotalSpent()}`;
+  }
+
+  const addDestinationOptionsToDropdown = (destinations) => {
+    destinations.forEach(destination => {
+      destinationDropdown.add(new Option(destination.destination, destination.destination));
+    })
   }
