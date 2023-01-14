@@ -21,7 +21,7 @@ class Traveler {
 
   calculateTotalSpent()  {
     const thisYearTrips = this.trips.filter(trip => {
-      if (new Date(trip.date).getFullYear() === 2021) {
+      if (new Date(trip.date).getFullYear() === 2019) {
         return trip;
       }
     });

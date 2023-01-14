@@ -96,6 +96,29 @@ const domUpdates = {
     return correctDate;
   },
 
+  createNewTrip(data, traveler) {
+    const destination = this.findDestination(data[3])
+    let newTrip = {
+      id: data[2].length + 1,
+      userID: traveler.id,
+      destinationID: destination.id,
+      travelers: parseInt(numOfTravelersInput.value),
+      date: domUpdates.fixInputDate(),
+      duration: parseInt(tripDurationIput.value),
+      status: 'pending',
+      suggestedActivities: []
+    }
+    console.log(newTrip);
+  },
+
+  findDestination(destinations) {
+    if (destinationDropdown.value !== '--Destination--') {
+      return destinations.find(destination => {
+        return destination.destination === destinationDropdown.value;
+      })
+    }
+  },
+
   hideResponse(elem, form) {
     elem.classList.add('hidden');
     form.reset();

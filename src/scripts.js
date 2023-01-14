@@ -8,7 +8,8 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-
+let currentTraveler;
+let allData;
 
 const searchButton = document.getElementById('searchButton');
 
@@ -21,12 +22,16 @@ function displayData () {
     console.log(randomUserNum)
     getAllData()
       .then(data => {
+        allData = data;
+        console.log('alldata', allData)
         intializeData(data, randomUserNum);
       });
   }
 
   const intializeData = (data, randomId) => {
     const traveler = new Traveler(data[0][randomId], data[2], data[3]);
+    currentTraveler = traveler
+    console.log('currentT',currentTraveler)
     domUpdates.renderTravelerTrips(traveler);
     domUpdates.greetUser(traveler);
     domUpdates.displayAmountSpentYearly(traveler);
@@ -35,11 +40,7 @@ function displayData () {
 
   function checkForm(event) {
     event.preventDefault();
-    console.log(destinationDropdown.value);
-    console.log(tripDurationIput.value);
-    console.log(numOfTravelersInput.value);
-    console.log(startDateInput.value);
-    if (checkInputValidation()) {
-      console.log('Wassup yo!')
+    if (domUpdates.checkInputValidation()) {
+        domUpdates.createNewTrip(allData, currentTraveler);
     }
   }
