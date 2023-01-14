@@ -15,27 +15,28 @@
     </section>
   </header>
   <section class="form-container">
-    <form class="user-inputs">
+    <form class="user-inputs" id="userInputForm">
       <div class="input-container">
         <label for="destinationDropdown">Select Your Destination:</label>
-        <select name="destinations" id="destinationDropdown">
+        <select name="destinations" id="destinationDropdown" aria-required="true" required>
           <option value="">--Destination--</option>
         </select>
       </div>
       <div class="input-container">
         <label for="startDate">Start Date:</label>
-        <input type="date" class="date-input" id="startDate">
+        <input type="date" class="date-input" id="startDate" aria-required="true">
       </div>
       <div class="input-container">
         <label for="tripDuration">Duration:</label>
-        <input type="number" class="number-input" id="tripDuration" min="1">
+        <input type="number" class="number-input" id="tripDuration" min="1" aria-required="true">
       </div>
       <div class="input-container">
         <label for="numberOfTravelers">Travelers:</label>
-        <input type="number" class="number-input" id="numberOfTravelers" min="1">
+        <input type="number" class="number-input" id="numberOfTravelers" min="1" aria-required="true">
       </div>
-      <button class="search-button">Search</button>
+      <button class="search-button" id="searchButton">Search</button>
     </form>
+    <p class="error-message hidden" id="errorMessage">Please Fill Out All Sections!</p>
   </section>
   <section class="trips-selector-container">
     <h3>Your Trips</h3>
