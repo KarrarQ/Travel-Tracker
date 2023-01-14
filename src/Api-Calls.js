@@ -31,4 +31,4 @@ const getData = (dataUrl, objName) => {
     return postedData;
   }
   
-  export { getAllData, postData }
+  export { getAllData, postData}
