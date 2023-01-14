@@ -9,7 +9,7 @@ const errorMessage = document.getElementById('errorMessage');
 const userInputForm = document.getElementById('userInputForm');
 
 
-let domUpdates = {
+const domUpdates = {
   renderTravelerTrips(traveler) {
     tripCardsContainer.innerHTML = '';
     traveler.trips.forEach(trip => {
