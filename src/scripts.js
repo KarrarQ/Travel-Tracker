@@ -12,9 +12,16 @@ let currentTraveler;
 let allData;
 
 const searchButton = document.getElementById('searchButton');
+const acceptButton = document.getElementById('acceptButton');
+const cancelButton = document.getElementById('cancelButton');
+const estimatedCost = document.getElementById('estimatedCost');
+const userInputForm = document.getElementById('userInputForm');
+
 
 window.addEventListener('load', displayData);
 searchButton.addEventListener('click', checkForm);
+acceptButton.addEventListener('click', acceptTripRequest);
+cancelButton.addEventListener('click', renderForm);
 
 
 function displayData () {
@@ -43,4 +50,15 @@ function displayData () {
     if (domUpdates.checkInputValidation()) {
         domUpdates.createNewTrip(allData, currentTraveler);
     }
+  }
+
+  function acceptTripRequest() {
+    domUpdates.sendTripRequest(currentTraveler)
+  }
+  
+  function renderForm() {
+    domUpdates.hideResponse(estimatedCost, userInputForm)
+    domUpdates.hide(acceptButton);
+    domUpdates.hide(cancelButton);
+    domUpdates.display(userInputForm);
   }
