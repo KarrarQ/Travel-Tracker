@@ -11,6 +11,9 @@ const startDateInput = document.getElementById('startDate');
 const tripDurationIput = document.getElementById('tripDuration');
 const numOfTravelersInput = document.getElementById('numberOfTravelers');
 const errorMessage = document.getElementById('errorMessage');
+const estimatedCost = document.getElementById('estimatedCost');
+const acceptButton = document.getElementById('acceptButton');
+const cancelButton = document.getElementById('cancelButton');
 const userInputForm = document.getElementById('userInputForm');
 
 
@@ -103,7 +106,7 @@ const domUpdates = {
 
   createNewTrip(data, traveler) {
     const destination = this.findDestination(data[3])
-    let newTrip = {
+    let trip = {
       id: data[2].length + 1,
       userID: traveler.id,
       destinationID: destination.id,
@@ -113,7 +116,23 @@ const domUpdates = {
       status: 'pending',
       suggestedActivities: []
     }
-    console.log(newTrip);
+    newTrip = new Trip(trip, data[3]);
+    this.displayCost(newTrip);
+  },
+
+  displayCost(trip) {
+    estimatedCost.innerText = `Trip Estimated Cost: $${trip.calculateTripCost()}`;
+    this.hideResponse(userInputForm, userInputForm);
+    this.display(estimatedCost);
+    this.display(cancelButton);
+    this.display(acceptButton);
+
+  },
+
+  sendTripRequest(traveler) {
+    console.log(newTrip)
+    postData('http://localhost:3001/api/v1/trips', newTrip);
+    // traveler.trips.push(newTrip);
   },
 
   findDestination(destinations) {
@@ -127,6 +146,14 @@ const domUpdates = {
   hideResponse(elem, form) {
     elem.classList.add('hidden');
     form.reset();
+  },
+
+  display(element) {
+  element.classList.remove('hidden');
+  },
+
+  hide(element) {
+  element.classList.add('hidden');
   }
 }
 
