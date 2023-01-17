@@ -3,7 +3,6 @@ import {connectionErr, checkStatus} from "./error-handling";
 const getData = (dataUrl, objName) => {
     const retrievedData = fetch(dataUrl)
     .then(response => {
-      // console.log('Response:', response);
       checkStatus(response, `There was an error connecting to ${dataUrl}.`)
       return response.json()
     })
