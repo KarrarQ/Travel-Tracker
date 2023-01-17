@@ -10,11 +10,11 @@
   <header>
     <h1 class="title">Where to NXT</h1>
     <section class="user-greeting">
-      <h2 id="userGreeting">Welcome, User!</h2>
-      <p class="money-spent" id="totalSpent">Total Amount Spent This Year: $109293.07</p>
+      <h2 id="userGreeting"></h2>
+      <p class="money-spent" id="totalSpent"></p>
     </section>
   </header>
-  <section class="form-container">
+  <section class="form-container hidden" id="tripInputContainer">
     <form class="user-inputs" id="userInputForm">
       <div class="input-container">
         <label for="destinationDropdown">Select Your Destination:</label>
@@ -44,7 +44,7 @@
       <button class="search-button hidden" id="backButton">Back</button>
     </div>
   </section>
-  <section class="trips-selector-container">
+  <section class="trips-selector-container hidden" id="tripSelectorContainer">
     <h3>Your Trips</h3>
     <div class="trip-selectors">
       <button id="allTripsButton">All trips</button>
@@ -52,7 +52,21 @@
       <button id="pendingTripsButton">Pending</button>
     </div>
   </section>
-  <main id="tripCardsContainer"></main>
+  <main id="tripCardsContainer">
+    <h4 class="login-title" id="loginTitle">Login To Continue</h4>
+    <form class="login-form" id="loginForm">
+      <div class="login-info-container">
+        <label for="userName">Username:</label>
+        <input class="login-input" type="text" id="userName" name="username" placeholder="Username" aria-required="true">
+      </div>
+      <div class="login-info-container">
+        <label for="password">Password:</label>
+        <input class="login-input" type="password" id="password" name="password" placeholder="Password" aria-required="true">
+      </div>
+      <button class="login-button" id="loginButton">LOGIN</button>
+      <p class="login-error-message hidden" id="loginErrorMessage">Please Fill Out All Sections!</p>
+    </form>
+  </main>
   <!-- <h4 class="no-trips-message hidden" id="noTripsMessage">You Have No Pending Trips. Time To Book!</h4> -->
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   

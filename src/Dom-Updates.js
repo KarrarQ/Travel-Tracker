@@ -32,7 +32,7 @@ const domUpdates = {
         <p>Date: ${trip.date}</p>
         <p>Travelers: ${trip.travelers}</p>
         <p>Duration: ${trip.duration}</p>
-        <p>Cost: $${trip.calculateTripCost()}</p>
+        <p>Cost: $${this.formatNumber(trip.calculateTripCost())}</p>
         <p>Status: ${trip.status}</p>
       </section>
     </article>`
