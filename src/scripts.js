@@ -55,7 +55,6 @@ function checkLoginInfo(event) {
 
   const createTraveler = (id) => {
     currentTraveler = new Traveler(allData[0][id - 1], allData[2], allData[3]);
-    console.log(currentTraveler)
   }
   
   const checkLoginInputsAreFilled = () => {
