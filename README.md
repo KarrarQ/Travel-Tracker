@@ -2,7 +2,7 @@
 
 ## `Overview`
 
-Where to NXT is a travel tracking app developed by [Karrar Qasim](https://github.com/KarrarQ). This is the final solo project for Mod 2 of [Turing School of Software & Design](https://turing.io/)'s front-end engineering program. This application uses Object Oriented Programming to drive the design and codebase of the application, and it works with an API to send and receive data. A detailed spec for the assignment can be found [here](https://frontend.turing.edu/projects/travel-tracker.html).
+Where to NXT is a travel tracking app developed by [Karrar Qasim](https://github.com/KarrarQ). This is the final solo project for Mod 2 of Turing School of Software & Design front-end engineering program. This application uses Object Oriented Programming to drive the design and codebase of the application, and it works with an API to send and receive data. A detailed spec for the assignment can be found [here](https://frontend.turing.edu/projects/travel-tracker.html).
 
 ### `Goals`
 The goals of this project were to:
