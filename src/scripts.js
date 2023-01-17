@@ -1,12 +1,7 @@
 import { getAllData } from './api-calls';
 import Traveler from './Traveler';
 import domUpdates from './dom-updates';
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/styles.css';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
 
 const loginForm = document.getElementById('loginForm');
 const userNameInput = document.getElementById('userName');
@@ -87,7 +82,6 @@ const displayData = () => {
     getAllData()
       .then(data => {
         allData = data;
-        console.log('alldata', allData)
       });
   }
 

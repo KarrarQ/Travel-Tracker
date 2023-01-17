@@ -24,7 +24,7 @@ The goals of this project were to:
 - Go back to your browser and enter https://localhost:8080 in the search bar to access the frontend of the application.
 
 ### `Visual of Functionality:`
-
+![gif of user navigating app](https://media.giphy.com/media/b2GrKVtd4elR1IH4pc/giphy.gif)
 
 ### `Challenges`
 - Timing Asynchronous Javascript.
