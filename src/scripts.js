@@ -78,7 +78,7 @@ function checkLoginInfo(event) {
         domUpdates.hideResponse(loginErrorMessage, loginForm);
       }, 2000);
     } else {
-      return true
+      return true;
     }
   }
   
@@ -90,7 +90,7 @@ function checkLoginInfo(event) {
         domUpdates.hideResponse(loginErrorMessage, loginForm);
       }, 2000);
     } else {
-      return true
+      return true;
     }
   }
 
@@ -103,10 +103,10 @@ function displayData () {
   }
 
   const intializeData = () => {
-    domUpdates.renderTravelerTrips(currentTraveler.trips);
+    displayAllTrips();
     domUpdates.greetUser(currentTraveler);
     domUpdates.displayAmountSpentYearly(currentTraveler);
-    domUpdates.addDestinationOptionsToDropdown(allData[3])
+    domUpdates.addDestinationOptionsToDropdown(allData[3]);
   }
   
 
@@ -119,14 +119,13 @@ function displayData () {
 
   function acceptTripRequest() {
     domUpdates.sendTripRequest(currentTraveler)
-    domUpdates.renderTravelerTrips(currentTraveler.trips);
     domUpdates.hide(cancelButton);
     domUpdates.hide(acceptButton);
     domUpdates.display(backButton);
   }
   
   function renderForm() {
-    domUpdates.hideResponse(estimatedCost, userInputForm)
+    domUpdates.hideResponse(estimatedCost, userInputForm);
     domUpdates.hide(acceptButton);
     domUpdates.hide(backButton);
     domUpdates.hide(cancelButton);
@@ -138,5 +137,5 @@ function displayData () {
   }
   
   function displayAllTrips() {
-    domUpdates.renderTravelerTrips(currentTraveler.trips);
+    domUpdates.changeToApprovedTrips(currentTraveler.trips);
   }

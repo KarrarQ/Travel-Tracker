@@ -169,6 +169,13 @@ const domUpdates = {
     // }
   },  
 
+  changeToApprovedTrips(trips) {
+    const approvedTrips = trips.filter(trip => {
+      return trip.status.includes('approved');
+    })
+    this.renderTravelerTrips(approvedTrips)
+  },
+
   formatNumber(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   },
