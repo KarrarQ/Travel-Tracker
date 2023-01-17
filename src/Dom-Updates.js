@@ -160,13 +160,7 @@ const domUpdates = {
     const pendingTrips = traveler.trips.filter(trip => {
       return trip.status.includes('pending')
     });
-    // console.log(pendingTrips)
-    // if (pendingTrips.length) {
     this.renderTravelerTrips(pendingTrips);
-    // } else {
-    //   this.hide(tripCardsContainer)
-    //   this.display(noTripsMessage);
-    // }
   },  
 
   changeToApprovedTrips(trips) {
