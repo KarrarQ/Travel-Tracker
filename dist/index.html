@@ -41,17 +41,19 @@
     <div>
       <button class="search-button hidden" id="acceptButton">Accept</button>
       <button class="search-button hidden" id="cancelButton">Cancel</button>
+      <button class="search-button hidden" id="backButton">Back</button>
     </div>
   </section>
   <section class="trips-selector-container">
     <h3>Your Trips</h3>
     <div class="trip-selectors">
-      <button>All trips</button>
-      <button>Upcoming</button>
-      <button>Pending</button>
+      <button id="allTripsButton">All trips</button>
+      <!-- <button>Upcoming</button> -->
+      <button id="pendingTripsButton">Pending</button>
     </div>
   </section>
   <main id="tripCardsContainer"></main>
+  <h4 class="no-trips-message hidden" id="noTripsMessage">You Have No Pending Trips. Book A New Trip Now!</h4>
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->

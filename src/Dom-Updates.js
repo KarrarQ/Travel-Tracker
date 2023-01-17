@@ -15,12 +15,13 @@ const estimatedCost = document.getElementById('estimatedCost');
 const acceptButton = document.getElementById('acceptButton');
 const cancelButton = document.getElementById('cancelButton');
 const userInputForm = document.getElementById('userInputForm');
+const noTripsMessage = document.getElementById('noTripsMessage')
 
 
 const domUpdates = {
-  renderTravelerTrips(traveler) {
+  renderTravelerTrips(trips) {
     tripCardsContainer.innerHTML = '';
-    traveler.trips.forEach(trip => {
+    trips.forEach(trip => {
       tripCardsContainer.innerHTML += `
       <article class="trip-card">
       <section class="destination-image-container">
@@ -120,6 +121,14 @@ const domUpdates = {
     this.displayCost(newTrip);
   },
 
+  findDestination(destinations) {
+    if (destinationDropdown.value !== '--Destination--') {
+      return destinations.find(destination => {
+        return destination.destination === destinationDropdown.value;
+      })
+    }
+  },
+
   displayCost(trip) {
     estimatedCost.innerText = `Trip Estimated Cost: $${trip.calculateTripCost()}`;
     this.hideResponse(userInputForm, userInputForm);
@@ -130,9 +139,9 @@ const domUpdates = {
   },
 
   sendTripRequest(traveler) {
-    console.log(newTrip)
     postData('http://localhost:3001/api/v1/trips', newTrip);
-    // traveler.trips.push(newTrip);
+    traveler.trips.push(newTrip);
+    estimatedCost.innerText = 'Your Trip Is Being Reviewed. Check Pending Trips.';
   },
 
   findDestination(destinations) {
@@ -142,6 +151,19 @@ const domUpdates = {
       })
     }
   },
+
+  changeToPendingTrips(traveler) {
+    const pendingTrips = traveler.trips.filter(trip => {
+      return trip.status.includes('pending')
+    });
+    // console.log(pendingTrips)
+    // if (pendingTrips.length) {
+    this.renderTravelerTrips(pendingTrips);
+    // } else {
+    //   this.hide(tripCardsContainer)
+    //   this.display(noTripsMessage);
+    // }
+  },  
 
   hideResponse(elem, form) {
     elem.classList.add('hidden');

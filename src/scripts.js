@@ -8,20 +8,27 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-let currentTraveler;
-let allData;
 
 const searchButton = document.getElementById('searchButton');
 const acceptButton = document.getElementById('acceptButton');
 const cancelButton = document.getElementById('cancelButton');
 const estimatedCost = document.getElementById('estimatedCost');
 const userInputForm = document.getElementById('userInputForm');
+const backButton = document.getElementById('backButton');
+const pendingTripsButton = document.getElementById('pendingTripsButton');
+const allTripsButton = document.getElementById('allTripsButton');
+
+let currentTraveler;
+let allData;
 
 
 window.addEventListener('load', displayData);
 searchButton.addEventListener('click', checkForm);
 acceptButton.addEventListener('click', acceptTripRequest);
 cancelButton.addEventListener('click', renderForm);
+backButton.addEventListener('click', renderForm);
+pendingTripsButton.addEventListener('click', displayPendingTrips);
+allTripsButton.addEventListener('click', displayAllTrips);
 
 
 function displayData () {
@@ -39,7 +46,7 @@ function displayData () {
     const traveler = new Traveler(data[0][randomId], data[2], data[3]);
     currentTraveler = traveler
     console.log('currentT',currentTraveler)
-    domUpdates.renderTravelerTrips(traveler);
+    domUpdates.renderTravelerTrips(traveler.trips);
     domUpdates.greetUser(traveler);
     domUpdates.displayAmountSpentYearly(traveler);
     domUpdates.addDestinationOptionsToDropdown(data[3])
@@ -59,6 +66,15 @@ function displayData () {
   function renderForm() {
     domUpdates.hideResponse(estimatedCost, userInputForm)
     domUpdates.hide(acceptButton);
+    domUpdates.hide(backButton);
     domUpdates.hide(cancelButton);
     domUpdates.display(userInputForm);
+  }
+
+  function displayPendingTrips() {
+    domUpdates.changeToPendingTrips(currentTraveler);
+  }
+  
+  function displayAllTrips() {
+    domUpdates.renderTravelerTrips(currentTraveler.trips);
   }
