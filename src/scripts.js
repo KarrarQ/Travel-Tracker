@@ -48,6 +48,7 @@ function checkLoginInfo(event) {
       domUpdates.hide(loginForm);
       domUpdates.display(tripInputContainer);
       domUpdates.display(tripSelectorContainer);
+      domUpdates.changeMainView();
       intializeData();
     }
   }
@@ -82,7 +83,7 @@ function checkLoginInfo(event) {
   }
   
   const validatePassword = () => {
-    if (passwordInput.value !== 'traveler') {
+    if (passwordInput.value !== 'travel') {
       loginErrorMessage.innerText = 'The Password Was Wrong. Please Try Again!';
       domUpdates.display(loginErrorMessage);
       setTimeout(() => {
