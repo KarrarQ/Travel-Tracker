@@ -3,7 +3,7 @@ import Trip from "./Trip";
 class Traveler {
   constructor(travelersData, allTripsData, allDestinations) {
     this.id = travelersData.id;
-    this.name = travelersData.name;
+    this.name = travelersData.name;        
     this.type = travelersData.travelerType;
     this.trips = this.getAllTravelerTrips(allTripsData, allDestinations);
   }
@@ -21,7 +21,7 @@ class Traveler {
 
   calculateTotalSpent()  {
     const thisYearTrips = this.trips.filter(trip => {
-      if (new Date(trip.date).getFullYear() === 2021) {
+      if (new Date(trip.date).getFullYear() === 2019) {
         return trip;
       }
     });

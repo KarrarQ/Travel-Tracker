@@ -16,5 +16,19 @@ const getData = (dataUrl, objName) => {
     const allPromise = Promise.all([getAllTravelersData,getSingleTravelerData, getAllTripsData, getAllDestinationsData]).then(data => data);
     return allPromise;
   }
+
+  const postData = (url, newData) => {
+    const postedData = fetch(url, {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error))
+    return postedData;
+  }
   
-  export { getAllData }
+  export { getAllData, postData}

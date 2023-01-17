@@ -10,75 +10,50 @@
   <header>
     <h1 class="title">Where to NXT</h1>
     <section class="user-greeting">
-      <h2>Welcome, User!</h2>
-      <p class="money-spent">Total Amount Spent This Year: $109293.07</p>
+      <h2 id="userGreeting">Welcome, User!</h2>
+      <p class="money-spent" id="totalSpent">Total Amount Spent This Year: $109293.07</p>
     </section>
   </header>
   <section class="form-container">
-    <form class="user-inputs">
+    <form class="user-inputs" id="userInputForm">
       <div class="input-container">
         <label for="destinationDropdown">Select Your Destination:</label>
-        <select name="destinations" id="destinationDropdown">
-          <option value="">--Destination--</option>
+        <select name="destinations" id="destinationDropdown" aria-required="true" required>
+          <option value="--Destination--">--Destination--</option>
         </select>
       </div>
       <div class="input-container">
         <label for="startDate">Start Date:</label>
-        <input type="date" class="date-input" id="startDate">
+        <input type="date" class="date-input" id="startDate" aria-required="true">
       </div>
       <div class="input-container">
         <label for="tripDuration">Duration:</label>
-        <input type="number" class="number-input" id="tripDuration" min="1">
+        <input type="number" class="number-input" id="tripDuration" min="1" aria-required="true">
       </div>
       <div class="input-container">
         <label for="numberOfTravelers">Travelers:</label>
-        <input type="number" class="number-input" id="numberOfTravelers" min="1">
+        <input type="number" class="number-input" id="numberOfTravelers" min="1" aria-required="true">
       </div>
-      <button class="search-button">Search</button>
+      <button class="search-button" id="searchButton">Search</button>
     </form>
+    <p class="message-to-user hidden" id="errorMessage">Please Fill Out All Sections!</p>
+    <p class="message-to-user hidden" id="estimatedCost">Trip Estimated Cost: $0.00</p>
+    <div>
+      <button class="search-button hidden" id="acceptButton">Accept</button>
+      <button class="search-button hidden" id="cancelButton">Cancel</button>
+      <button class="search-button hidden" id="backButton">Back</button>
+    </div>
   </section>
   <section class="trips-selector-container">
     <h3>Your Trips</h3>
     <div class="trip-selectors">
-      <button>All trips</button>
-      <button>Upcoming</button>
-      <button>Pending</button>
+      <button id="allTripsButton">All trips</button>
+      <!-- <button>Upcoming</button> -->
+      <button id="pendingTripsButton">Pending</button>
     </div>
   </section>
-  <main>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-    <article class="trip-card">
-      <section class="destination-image-container">
-        <img src="" alt="destination-image">
-      </section>
-      <section class="trip-info">
-        <h4>Destination Name</h4>
-      </section>
-    </article>
-  </main>
+  <main id="tripCardsContainer"></main>
+  <!-- <h4 class="no-trips-message hidden" id="noTripsMessage">You Have No Pending Trips. Time To Book!</h4> -->
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
