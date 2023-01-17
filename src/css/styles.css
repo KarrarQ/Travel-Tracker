@@ -37,7 +37,8 @@ h2 {
 
 .form-container {
   display: flex;
-  height: 20vh;
+  height: 25vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #c5c3c31c;
@@ -50,6 +51,7 @@ h2 {
   justify-content: center;
   /* border: 2px solid; */
   border-radius: 80px;
+  margin-bottom: 35px;
   height: 9vh;
   width: 55vw;
   box-shadow: 0 10px 14px rgb(34 15 15 / 13%), 0 4px 14px rgb(0 0 0 / 22%)
@@ -133,4 +135,16 @@ h3 {
   height: 36vh;
   color: #3a3b49;
   font-size: 30px
+}
+
+.message-to-user {
+  font-size: 30px;
+}
+
+.no-trips-message {
+  font-size: 50px;
+}
+
+.hidden {
+  display: none;
 }
