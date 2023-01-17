@@ -46,7 +46,7 @@ const domUpdates = {
   },
 
   displayAmountSpentYearly(traveler) {
-    totalSpent.innerText = `Total Amount Spent This Year: $${traveler.calculateTotalSpent()}`;
+    totalSpent.innerText = `Total Amount Spent This Year: $${this.formatNumber(traveler.calculateTotalSpent())}`;
   },
 
   addDestinationOptionsToDropdown(destinations) {
@@ -164,6 +164,10 @@ const domUpdates = {
     //   this.display(noTripsMessage);
     // }
   },  
+
+  formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  },
 
   hideResponse(elem, form) {
     elem.classList.add('hidden');
