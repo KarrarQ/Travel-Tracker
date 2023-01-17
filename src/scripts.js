@@ -28,17 +28,7 @@ const allTripsButton = document.getElementById('allTripsButton');
 let currentTraveler;
 let allData;
 
-
-window.addEventListener('load', displayData);
-loginButton.addEventListener('click', checkLoginInfo);
-searchButton.addEventListener('click', checkForm);
-acceptButton.addEventListener('click', acceptTripRequest);
-cancelButton.addEventListener('click', renderForm);
-backButton.addEventListener('click', renderForm);
-pendingTripsButton.addEventListener('click', displayPendingTrips);
-allTripsButton.addEventListener('click', displayAllTrips);
-
-function checkLoginInfo(event) {
+const checkLoginInfo = (event) => {
     event.preventDefault();
     displayData();
     const id = parseInt(userNameInput.value.slice(8));
@@ -93,7 +83,7 @@ function checkLoginInfo(event) {
     }
   }
 
-function displayData () {
+const displayData = () => {
     getAllData()
       .then(data => {
         allData = data;
@@ -101,7 +91,7 @@ function displayData () {
       });
   }
 
-  const intializeData = () => {
+const intializeData = () => {
     displayAllTrips();
     domUpdates.greetUser(currentTraveler);
     domUpdates.displayAmountSpentYearly(currentTraveler);
@@ -109,21 +99,21 @@ function displayData () {
   }
   
 
-  function checkForm(event) {
+const checkForm = (event) => {
     event.preventDefault();
     if (domUpdates.checkInputValidation()) {
         domUpdates.createNewTrip(allData, currentTraveler);
     }
   }
 
-  function acceptTripRequest() {
+const acceptTripRequest = () => {
     domUpdates.sendTripRequest(currentTraveler)
     domUpdates.hide(cancelButton);
     domUpdates.hide(acceptButton);
     domUpdates.display(backButton);
   }
   
-  function renderForm() {
+const renderForm = () => {
     domUpdates.hideResponse(estimatedCost, userInputForm);
     domUpdates.hide(acceptButton);
     domUpdates.hide(backButton);
@@ -131,10 +121,19 @@ function displayData () {
     domUpdates.display(userInputForm);
   }
 
-  function displayPendingTrips() {
+const displayPendingTrips = () => {
     domUpdates.changeToPendingTrips(currentTraveler);
   }
   
-  function displayAllTrips() {
+const displayAllTrips = () => {
     domUpdates.changeToApprovedTrips(currentTraveler.trips);
   }
+
+window.addEventListener('load', displayData);
+loginButton.addEventListener('click', checkLoginInfo);
+searchButton.addEventListener('click', checkForm);
+acceptButton.addEventListener('click', acceptTripRequest);
+cancelButton.addEventListener('click', renderForm);
+backButton.addEventListener('click', renderForm);
+pendingTripsButton.addEventListener('click', displayPendingTrips);
+allTripsButton.addEventListener('click', displayAllTrips);
