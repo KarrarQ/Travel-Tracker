@@ -11,7 +11,7 @@ The goals of this project were to:
 - Solidify the code review process.
 - Create a robust test suite that thoroughly tests all functionality of a client-side application
 
-### `Running ExploreX`
+### `Running Where to NXT`
 - `git clone` the repo down to your machine.
 - `cd` into the repository.
 - Run `npm install`.
