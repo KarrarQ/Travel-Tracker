@@ -51,6 +51,6 @@ The goals of this project were to:
 - Add a logout feature
 
 #### `A Front End Development Project by:`
-2. Karrar Qasim
+ Karrar Qasim
     * [GitHub](https://github.com/KarrarQ)
     * [LinkedIn](https://www.linkedin.com/in/karrar-qasim-b6307024b/)
